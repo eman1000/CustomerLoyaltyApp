@@ -12,10 +12,37 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var drawerContainer:MMDrawerController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Remeber User Sign In State
+        
+        let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId")
+        
+        if(userId != nil)
+        {
+            //take user to protected page
+            
+           /* let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainPage = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+            
+            let mainPageNav = UINavigationController(rootViewController: mainPage)
+            self.window?.rootViewController = mainPageNav
+            */
+           
+            
+            //take user to navigation drawer afeter login
+            
+            buildNavigationDrawer()
+            
+            
+            
+        }
+        
         return true
     }
 
@@ -41,6 +68,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    func buildNavigationDrawer()
+    {
+        //Navigate to main mage
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //Instatiate view controllers Create View Controllers
+        
+        var mainPage:MainPageViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+        var rightSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
+        
+        //Wrap view controllers into navigation controller
+        var mainPageNav = UINavigationController(rootViewController: mainPage)
+        var rightSideMenuNav = UINavigationController(rootViewController: rightSideMenu)
+        
+        
+        //Create navigation Drawer
+        
+       drawerContainer = MMDrawerController(centerViewController: mainPageNav, rightDrawerViewController: rightSideMenuNav)
+        
+        drawerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        drawerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
+        
+        //Set to window root controller
+        
+        window?.rootViewController = drawerContainer
+        
+        
+        
+    }
 
 }
 

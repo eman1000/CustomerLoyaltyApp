@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D001CDD1D23EF9800B8E8DE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */; };
 		7D1AE7CB1D210D1E0020CDF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7CA1D210D1E0020CDF3 /* AppDelegate.swift */; };
 		7D1AE7CD1D210D1E0020CDF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7CC1D210D1E0020CDF3 /* ViewController.swift */; };
 		7D1AE7D01D210D1E0020CDF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1AE7CE1D210D1E0020CDF3 /* Main.storyboard */; };
@@ -14,6 +15,15 @@
 		7D1AE7D51D210D1E0020CDF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1AE7D31D210D1E0020CDF3 /* LaunchScreen.storyboard */; };
 		7D1AE7E01D210D1F0020CDF3 /* CustomerLoyaltyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7DF1D210D1F0020CDF3 /* CustomerLoyaltyAppTests.swift */; };
 		7D1AE7EB1D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7EA1D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.swift */; };
+		7D43912A1D280DB000F87BCA /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4391291D280DB000F87BCA /* SideViewController.swift */; };
+		7DAC7CDF1D29E78E00EE0865 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC7CDE1D29E78E00EE0865 /* AboutViewController.swift */; };
+		7DD3D9971D2508CC00F2CFBA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9961D2508CC00F2CFBA /* SignInViewController.swift */; };
+		7DD3D9991D250F1400F2CFBA /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9981D250F1400F2CFBA /* MainPageViewController.swift */; };
+		7DD3D99D1D2544FF00F2CFBA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D99C1D2544FF00F2CFBA /* MBProgressHUD.m */; };
+		7DD3D9A71D25615C00F2CFBA /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D99F1D25615C00F2CFBA /* MMDrawerBarButtonItem.m */; };
+		7DD3D9A81D25615C00F2CFBA /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9A11D25615C00F2CFBA /* MMDrawerController.m */; };
+		7DD3D9A91D25615C00F2CFBA /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9A41D25615C00F2CFBA /* MMDrawerVisualState.m */; };
+		7DD3D9AA1D25615C00F2CFBA /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9A61D25615C00F2CFBA /* UIViewController+MMDrawerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7D1AE7C71D210D1E0020CDF3 /* CustomerLoyaltyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomerLoyaltyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1AE7CA1D210D1E0020CDF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D1AE7CC1D210D1E0020CDF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +58,22 @@
 		7D1AE7E61D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomerLoyaltyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1AE7EA1D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerLoyaltyAppUITests.swift; sourceTree = "<group>"; };
 		7D1AE7EC1D210D1F0020CDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D4391291D280DB000F87BCA /* SideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
+		7DAC7CDE1D29E78E00EE0865 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		7DD3D9961D2508CC00F2CFBA /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7DD3D9981D250F1400F2CFBA /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		7DD3D99A1D2544FE00F2CFBA /* CustomerLoyaltyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomerLoyaltyApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		7DD3D99B1D2544FF00F2CFBA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7DD3D99C1D2544FF00F2CFBA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7DD3D99E1D25615C00F2CFBA /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		7DD3D99F1D25615C00F2CFBA /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		7DD3D9A01D25615C00F2CFBA /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		7DD3D9A11D25615C00F2CFBA /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		7DD3D9A21D25615C00F2CFBA /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		7DD3D9A31D25615C00F2CFBA /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		7DD3D9A41D25615C00F2CFBA /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		7DD3D9A51D25615C00F2CFBA /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		7DD3D9A61D25615C00F2CFBA /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +124,23 @@
 		7D1AE7C91D210D1E0020CDF3 /* CustomerLoyaltyApp */ = {
 			isa = PBXGroup;
 			children = (
+				7DD3D9AB1D25617700F2CFBA /* MMDrawer */,
+				7DD3D9A51D25615C00F2CFBA /* UIViewController+MMDrawerController.h */,
+				7DD3D9A61D25615C00F2CFBA /* UIViewController+MMDrawerController.m */,
+				7DD3D99B1D2544FF00F2CFBA /* MBProgressHUD.h */,
+				7DD3D99C1D2544FF00F2CFBA /* MBProgressHUD.m */,
 				7D1AE7CA1D210D1E0020CDF3 /* AppDelegate.swift */,
 				7D1AE7CC1D210D1E0020CDF3 /* ViewController.swift */,
 				7D1AE7CE1D210D1E0020CDF3 /* Main.storyboard */,
 				7D1AE7D11D210D1E0020CDF3 /* Assets.xcassets */,
 				7D1AE7D31D210D1E0020CDF3 /* LaunchScreen.storyboard */,
 				7D1AE7D61D210D1E0020CDF3 /* Info.plist */,
+				7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */,
+				7DD3D9961D2508CC00F2CFBA /* SignInViewController.swift */,
+				7DD3D9981D250F1400F2CFBA /* MainPageViewController.swift */,
+				7DD3D99A1D2544FE00F2CFBA /* CustomerLoyaltyApp-Bridging-Header.h */,
+				7D4391291D280DB000F87BCA /* SideViewController.swift */,
+				7DAC7CDE1D29E78E00EE0865 /* AboutViewController.swift */,
 			);
 			path = CustomerLoyaltyApp;
 			sourceTree = "<group>";
@@ -123,6 +161,20 @@
 				7D1AE7EC1D210D1F0020CDF3 /* Info.plist */,
 			);
 			path = CustomerLoyaltyAppUITests;
+			sourceTree = "<group>";
+		};
+		7DD3D9AB1D25617700F2CFBA /* MMDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				7DD3D99E1D25615C00F2CFBA /* MMDrawerBarButtonItem.h */,
+				7DD3D99F1D25615C00F2CFBA /* MMDrawerBarButtonItem.m */,
+				7DD3D9A01D25615C00F2CFBA /* MMDrawerController.h */,
+				7DD3D9A11D25615C00F2CFBA /* MMDrawerController.m */,
+				7DD3D9A21D25615C00F2CFBA /* MMDrawerController+Subclass.h */,
+				7DD3D9A31D25615C00F2CFBA /* MMDrawerVisualState.h */,
+				7DD3D9A41D25615C00F2CFBA /* MMDrawerVisualState.m */,
+			);
+			name = MMDrawer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +245,6 @@
 				TargetAttributes = {
 					7D1AE7C61D210D1E0020CDF3 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = PXYR8YAR8Q;
 					};
 					7D1AE7DA1D210D1F0020CDF3 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -259,8 +310,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DD3D9991D250F1400F2CFBA /* MainPageViewController.swift in Sources */,
+				7DD3D99D1D2544FF00F2CFBA /* MBProgressHUD.m in Sources */,
+				7DD3D9A81D25615C00F2CFBA /* MMDrawerController.m in Sources */,
+				7DD3D9AA1D25615C00F2CFBA /* UIViewController+MMDrawerController.m in Sources */,
+				7DD3D9A91D25615C00F2CFBA /* MMDrawerVisualState.m in Sources */,
+				7D43912A1D280DB000F87BCA /* SideViewController.swift in Sources */,
+				7DAC7CDF1D29E78E00EE0865 /* AboutViewController.swift in Sources */,
+				7DD3D9971D2508CC00F2CFBA /* SignInViewController.swift in Sources */,
+				7D001CDD1D23EF9800B8E8DE /* SignUpViewController.swift in Sources */,
 				7D1AE7CD1D210D1E0020CDF3 /* ViewController.swift in Sources */,
 				7D1AE7CB1D210D1E0020CDF3 /* AppDelegate.swift in Sources */,
+				7DD3D9A71D25615C00F2CFBA /* MMDrawerBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,10 +465,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CustomerLoyaltyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WallMedia.CustomerLoyaltyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CustomerLoyaltyApp/CustomerLoyaltyApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -415,10 +480,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CustomerLoyaltyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WallMedia.CustomerLoyaltyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CustomerLoyaltyApp/CustomerLoyaltyApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -487,6 +555,7 @@
 				7D1AE7F11D210D1F0020CDF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D1AE7F21D210D1F0020CDF3 /* Build configuration list for PBXNativeTarget "CustomerLoyaltyAppTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +564,7 @@
 				7D1AE7F41D210D1F0020CDF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D1AE7F51D210D1F0020CDF3 /* Build configuration list for PBXNativeTarget "CustomerLoyaltyAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +573,7 @@
 				7D1AE7F71D210D1F0020CDF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
