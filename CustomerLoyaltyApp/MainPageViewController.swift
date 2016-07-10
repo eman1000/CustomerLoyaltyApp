@@ -1,243 +1,475 @@
+
+
 //
+
+
+
 //  MainPageViewController.swift
+
+
+
 //  CustomerLoyaltyApp
+
+
+
 //
+
+
+
 //  Created by Emmancipate Musemwa on 30/06/2016.
+
+
+
 //  Copyright © 2016 Emmancipate Musemwa. All rights reserved.
+
+
+
 //
+
+
+
+
+
+
 
 import UIKit
 
-class MainPageViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet weak var userFullNameLabel: UILabel!
-    @IBOutlet weak var profilePhotoImageView: UIImageView!
+
+
+
+
+
+
+class MainPageViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    
+   
+   
+    
+    @IBOutlet weak var myTableView: UITableView!
+    
+    let merchantLoadURL = "http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/getMerchant.php";
+    
+    var merchants = [Merchant]()
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
+        myTableView.rowHeight = 250.0
+        
+        
         super.viewDidLoad()
+        //remove space at the top of tableview
+        
+       // self.myTableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
+
+
+        
+
+        getMerchants()
+        
+        
+        
+        
+        
+        
         
         // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let userFistName = NSUserDefaults.standardUserDefaults().stringForKey("userFirstName")!
-        
-        let userLastName = NSUserDefaults.standardUserDefaults().stringForKey("userLastName")!
-        
-        let userFullName = userFistName + " " + userLastName
-        userFullNameLabel.text = userFullName
-        
-        if(profilePhotoImageView.image == nil)
-        {
-            let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId")
-            let imageUrl = NSURL(string:"http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/profile-pictures/\(userId!)/user-profile.jpg")
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                
-                let imageData = NSData(contentsOfURL: imageUrl!)
-                
-                if(imageData != nil)
-                {
-                    dispatch_async(dispatch_get_main_queue(),{
-                        self.profilePhotoImageView.image = UIImage(data: imageData!)
-                    })
-                }
-                
-            }
-            
-        }
-        
-        
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     override func didReceiveMemoryWarning() {
+        
+        
+        
         super.didReceiveMemoryWarning()
+        
+        
+        
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func selectProfilePhotoButtonTapped(sender: AnyObject) {
-        let myImagePicker = UIImagePickerController()
-        myImagePicker.delegate = self
-        myImagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
-        self.presentViewController(myImagePicker, animated: true, completion: nil)
+        
+        
     }
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
-        profilePhotoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        self.dismissViewControllerAnimated(true, completion: nil)
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         
-        //progress indicator
-        let spinningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        spinningActivity.labelText = "Loading"
-        spinningActivity.detailsLabelText = "Please wait"
         
-        myImageUploadRequest()
+        return 1
+        
+        
+        
     }
     
     
-    func myImageUploadRequest()
-    {
-        let myUrl = NSURL(string: "http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/imageUpload.php");
-        
-        let request = NSMutableURLRequest(URL:myUrl!);
-        request.HTTPMethod = "POST";
-        
-        let userId:String? = NSUserDefaults.standardUserDefaults().stringForKey("userId")
-        
-        let param = [
-            "userId" : userId!
-        ]
-        
-        let boundary = generateBoundaryString()
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
-        let imageData = UIImageJPEGRepresentation(profilePhotoImageView.image!, 1)
-        
-        if(imageData==nil)  { return; }
-        
-        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+        
+        return merchants.count
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
+        
+        
+        
+        //Configure cell
+        
+        cell.overlayView?.backgroundColor = UIColor(red: 0,green: 0,blue: 0,alpha: 0.5)
+        
+        cell.merchantNameLabel?.text = merchants[indexPath.row].merchant_name
+        
+         cell.merchantCity?.text = merchants[indexPath.row].merchant_city
+        
+     
+        
+        let bgImage = merchants[indexPath.row].bg_image  as? String
+        let bgImageUrl = NSURL(string:bgImage! )
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
-            //Dismiss progress indicator loading. Whill need to use dipach async coz we are in another function
+            let bgImageData = NSData(contentsOfURL: bgImageUrl!)
             
-            dispatch_async(dispatch_get_main_queue())
+            if(bgImageData != nil)
             {
-            
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                dispatch_async(dispatch_get_main_queue(),{
+                   cell.bgImageView?.image = UIImage(data: bgImageData!)
+                })
             }
             
-            if error != nil {
-                // Display an alert message
-                return
+        }
+        
+        //round logo
+        
+        cell.logoImageView.layer.cornerRadius = cell.logoImageView.frame.size.width / 2
+        
+        cell.logoImageView.clipsToBounds = true
+        
+        let logoImage = merchants[indexPath.row].logo_image  as? String
+        let logoImageUrl = NSURL(string:logoImage! )
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+            let logoImageData = NSData(contentsOfURL: logoImageUrl!)
+            
+            if(logoImageData != nil)
+            {
+                dispatch_async(dispatch_get_main_queue(),{
+                    cell.logoImageView?.image = UIImage(data: logoImageData!)
+                })
             }
             
-            do {
+        }
+        
+        return cell
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*@IBAction func rightSideButtonTapped(sender: AnyObject) {
+        
+        
+        
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        
+        
+        
+        
+        
+        
+        appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)
+        
+        
+        
+    }*/
+    
+    // Left Side Button With More items
+    
+    @IBAction func leftSideButtonTapped(sender: AnyObject) {
+        
+        
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        
+        appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        
+        
+    }
+   
+    
+    
+    
+    
+    
+    
+    func getMerchants() {
+        
+        
+        
+        let request = NSURLRequest(URL: NSURL(string: merchantLoadURL)!)
+        
+        let urlSession = NSURLSession.sharedSession()
+        
+        let task = urlSession.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
+            
+            
+            
+            if let error = error {
                 
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
-                
-                dispatch_async(dispatch_get_main_queue())
-                {
-                    
-                    if let parseJSON = json {
-                        // let userId = parseJSON["userId"] as? String
-                        
-                        // Display an alert message
-                        let userMessage = parseJSON["message"] as? String
-                        self.displayAlertMessage(userMessage!)
-                    } else {
-                        // Display an alert message
-                        let userMessage = "Could not upload image at this time"
-                        self.displayAlertMessage(userMessage)
-                    }
-                }
-            } catch
-            {
                 print(error)
+                
+                return
+                
             }
             
-        }).resume()
+            //Parsing
+            
+            
+            
+            if let data = data {
+                
+                
+                
+                self.merchants = self.parseJsonData(data)
+                
+                
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                    self.myTableView.reloadData();
+                    
+                    
+                    
+                })
+                
+                
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+        })
+        
+        task.resume()
+        
+        
         
         
         
     }
     
-    @IBAction func signOutButtonTapped(sender: AnyObject) {
-        
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("userFirstName")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("userLastName")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("userId")
-         NSUserDefaults.standardUserDefaults().removeObjectForKey("userDob")
-         NSUserDefaults.standardUserDefaults().removeObjectForKey("userEmail")
-         NSUserDefaults.standardUserDefaults().removeObjectForKey("userGender")
-         NSUserDefaults.standardUserDefaults().removeObjectForKey("userPhone")
-        NSUserDefaults.standardUserDefaults().synchronize()
+    
+    
+    
+    
+    func parseJsonData(data: NSData) -> [Merchant] {
         
         
-        let signInPage = self.storyboard?.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
         
-        let signInNav = UINavigationController(rootViewController: signInPage)
+        do {
+            
+            let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+            
+            
+            
+            //Parse Json Data
+          
+            
+            
+            let jsonMerchants = jsonResult?["merchants"] as! [AnyObject]
+            
+            for jsonMerchant in jsonMerchants {
+                
+                
+                
+                let merchant = Merchant()
+                
+                merchant.merchant_name = jsonMerchant["merchant_name"] as! String
+                
+                merchant.bg_image = jsonMerchant["bg_image"] as! String
+                merchant.logo_image = jsonMerchant["logo_image"] as! String
+                
+                merchant.merchant_city = jsonMerchant["merchant_city"] as! String
+                merchant.merchant_description = jsonMerchant["merchant_description"] as! String
+                merchant.merchant_phone = jsonMerchant["merchant_phone"] as! String
+                
+                merchant.merchant_address_line_one = jsonMerchant["merchant_address_line_one"] as! String
+                merchant.merchant_address_line_two = jsonMerchant["merchant_address_line_two"] as! String
+                merchant.merchant_category = jsonMerchant["merchant_category"] as! String
+                 merchant.merchant_country = jsonMerchant["merchant_country"] as! String
+                merchant.merchant_state = jsonMerchant["merchant_state"] as! String
+                merchant.merchant_country = jsonMerchant["merchant_country"] as! String
+                merchant.latitude = jsonMerchant["latitude"] as! String
+                 merchant.longitude = jsonMerchant["longitude"] as! String
+                merchant.merchant_facebook = jsonMerchant["merchant_facebook"] as! String
+                
+                
+                
+                
+                
+               
+                 
+                
+                
+                merchants.append(merchant)
+                
+                
+                
+                
+                
+                
+                
+            }
+            
+            
+            
+        }catch {
+            
+            print(error)
+            
+            
+            
+            
+            
+        }
         
-        let appDelegate = UIApplication.sharedApplication().delegate
-        appDelegate?.window??.rootViewController = signInNav
+        
+        
+        return merchants
+        
+        
+        
+        
+        
+    }
+    
+    
+    //Send Data Via Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let identifier = segue.identifier{
+        
+            switch identifier {
+            case "ShowDetails":
+                let merchantDetailVC = segue.destinationViewController as! MerchantDetailsTableViewController
+                
+              
+                let indexPath = self.myTableView.indexPathForSelectedRow
+                let dataToPass = merchants[indexPath!.row]
+                
+                    merchantDetailVC.viaSegue = dataToPass
+                
+                
+            default:
+                break
+            }
+        
+        
+        
+        
+        
+        }
+        
+        
+        
         
     }
  
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
-        let body = NSMutableData();
-        
-        if parameters != nil {
-            for (key, value) in parameters! {
-                body.appendString("--\(boundary)\r\n")
-                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                body.appendString("\(value)\r\n")
-            }
-        }
-        
-        let filename = "user-profile.jpg"
-        
-        let mimetype = "image/jpg"
-        
-        body.appendString("--\(boundary)\r\n")
-        body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-        body.appendData(imageDataKey)
-        body.appendString("\r\n")
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        //self.navigationController!.navigationBar.barTintColor = UIColor(red: 0,green: 0,blue: 0,alpha: 0.5)
         
         
-        
-        body.appendString("--\(boundary)--\r\n")
-        
-        return body
+        self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = nil
+    
+       self.navigationController?.navigationBar.translucent = true
+
     }
     
     
-    func generateBoundaryString() -> String {
-        // Create and return a unique string.
-        return "Boundary-\(NSUUID().UUIDString)"
-    }
-    
-    func displayAlertMessage(userMessage:String)
-    {
-        let myAlert = UIAlertController(title: "Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert);
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil)
-        
-        myAlert.addAction(okAction);
-        
-        self.presentViewController(myAlert, animated: true, completion: nil)
-        
-    }
-    
-    /**@IBAction func leftSideButtonTapped(sender: AnyObject) {
-        
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-    }
-    
-    @IBAction func rightSideButtonTapped(sender: AnyObject) {
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)
-    }*/
+  
     
     
 }
 
 
 
-extension NSMutableData {
-    
-    func appendString(string: String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        appendData(data!)
-    }
-}
+
+

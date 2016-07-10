@@ -78,15 +78,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var mainPage:MainPageViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
         var rightSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
+        var leftSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
         
         //Wrap view controllers into navigation controller
         var mainPageNav = UINavigationController(rootViewController: mainPage)
         var rightSideMenuNav = UINavigationController(rootViewController: rightSideMenu)
+        var leftSideMenuNav = UINavigationController(rootViewController: leftSideMenu)
+        
         
         
         //Create navigation Drawer
         
        drawerContainer = MMDrawerController(centerViewController: mainPageNav, rightDrawerViewController: rightSideMenuNav)
+         drawerContainer = MMDrawerController(centerViewController: mainPageNav, leftDrawerViewController: leftSideMenuNav)
         
         drawerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         drawerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView

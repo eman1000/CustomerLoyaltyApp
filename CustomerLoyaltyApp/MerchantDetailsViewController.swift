@@ -1,19 +1,26 @@
 //
-//  AboutViewController.swift
+//  MerchantDetailsViewController.swift
 //  CustomerLoyaltyApp
 //
-//  Created by Emmancipate Musemwa on 04/07/2016.
+//  Created by Emmancipate Musemwa on 07/07/2016.
 //  Copyright © 2016 Emmancipate Musemwa. All rights reserved.
 //
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class MerchantDetailsViewController: UIViewController {
 
+    @IBOutlet weak var recieveLabel: UILabel!
+    
+  
+    
+    var viaSegue: Merchant?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //recieveLabel.text = viaSegue?.merchant_name
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,20 +28,7 @@ class AboutViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
 
-    // Left Side Button With More items
-    
-    @IBAction func leftSideButtonTapped(sender: AnyObject) {
-        
-        
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        
-        appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-        
-        
-    }
     /*
     // MARK: - Navigation
 
