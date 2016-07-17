@@ -81,7 +81,7 @@ class SignUpViewController: UIViewController {
         spinningActivity.detailsLabelText = "Please wait"
         // Send HTTP POST
         
-         let myUrl = NSURL(string: "http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/registerUser.php");
+         let myUrl = NSURL(string: "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/registerUser.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
         

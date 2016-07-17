@@ -19,6 +19,8 @@ class Merchant {
     
     var merchant_phone:String = ""
     var merchant_facebook:String = ""
+    var merchant_email:String = ""
+    var merchant_website:String = ""
      var merchant_address_line_one:String = ""
      var merchant_address_line_two:String = ""
      var merchant_city:String = ""
@@ -27,6 +29,7 @@ class Merchant {
      var merchant_country:String = ""
      var longitude:String = ""
      var latitude:String = ""
+    var distanceN:Double = 0.0
     
     
 

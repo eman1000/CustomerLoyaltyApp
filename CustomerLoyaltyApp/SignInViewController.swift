@@ -53,7 +53,7 @@ class SignInViewController: UIViewController {
         spinningActivity.detailsLabelText = "Please wait"
         
         //post http request
-        let myUrl = NSURL(string: "http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/userSignin.php");
+        let myUrl = NSURL(string: "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/userSignin.php");
         
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";

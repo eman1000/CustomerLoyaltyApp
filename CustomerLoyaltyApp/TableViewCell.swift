@@ -19,6 +19,7 @@ class TableViewCell: UITableViewCell
     
     @IBOutlet weak var merchantNameLabel: UILabel!
     
+    @IBOutlet weak var distanceLabel: UILabel!
     
     
     @IBOutlet weak var merchantCity: UILabel!

@@ -34,6 +34,12 @@ class MerchantDetailsTableViewController: UITableViewController {
     
     @IBOutlet weak var stateCountryLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var emailAddressLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var facebookLabel: UILabel!
+    
+    //Image Cache Declaration
+    var imageCache = NSCache()
     
     
     override func viewDidLoad() {
@@ -67,22 +73,47 @@ class MerchantDetailsTableViewController: UITableViewController {
         addressLineTwoLabel.text = (viaSegue?.merchant_address_line_two)! + " "  + (viaSegue?.merchant_city)! + " " +  (viaSegue?.merchant_zipcode)!
         stateCountryLabel.text = (viaSegue?.merchant_state)! + " " + (viaSegue?.merchant_country)!
         
-         let bgImage = viaSegue?.bg_image
+         //facebookLabel.text = viaSegue?.merchant_facebook
         
-        let bgImageUrl = NSURL(string:bgImage! )
+        websiteLabel.text = viaSegue?.merchant_website
+        emailAddressLabel.text = viaSegue?.merchant_email
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        
+        
+        
+        //background image with cache
+        
+        if let bgImageURL = (viaSegue!.bg_image)  as? String {
             
-            let bgImageData = NSData(contentsOfURL: bgImageUrl!)
-            
-            if(bgImageData != nil)
-            {
-                dispatch_async(dispatch_get_main_queue(),{
-                    self.detailBgImage?.image = UIImage(data: bgImageData!)
-                })
+            if let image = imageCache.objectForKey(bgImageURL) as? UIImage {
+                
+                detailBgImage.image = image
+            }else{
+                
+                NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: bgImageURL)!, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    
+                    let image = UIImage(data: data!)
+                    
+                    self.imageCache.setObject(image!, forKey: bgImageURL)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        self.detailBgImage.image = image
+                        
+                    })
+                    
+                }).resume()
+                
             }
             
+            
         }
+        
+        
+        
         
         
         
@@ -92,19 +123,39 @@ class MerchantDetailsTableViewController: UITableViewController {
         
        logoImageView.clipsToBounds = true
         
-        let logoImage = viaSegue!.logo_image
-        let logoImageUrl = NSURL(string:logoImage )
+        logoImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        logoImageView.layer.borderWidth = 3
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+     
+        
+        
+        
+        if let logoImageURL = (viaSegue!.logo_image)  as? String {
             
-            let logoImageData = NSData(contentsOfURL: logoImageUrl!)
-            
-            if(logoImageData != nil)
-            {
-                dispatch_async(dispatch_get_main_queue(),{
-                    self.logoImageView?.image = UIImage(data: logoImageData!)
-                })
+            if let image = imageCache.objectForKey(logoImageURL) as? UIImage {
+                
+               logoImageView.image = image
+            }else{
+                
+                NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: logoImageURL)!, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    
+                    let image = UIImage(data: data!)
+                    
+                    self.imageCache.setObject(image!, forKey: logoImageURL)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        self.logoImageView.image = image
+                        
+                    })
+                    
+                }).resume()
+                
             }
+            
             
         }
 
@@ -150,6 +201,9 @@ class MerchantDetailsTableViewController: UITableViewController {
         case 5:
             categoryLabel.text = "Others"
             break
+        case 6:
+            categoryLabel.text = "Athletics & Sports"
+            break
         default:
             break
         }
@@ -169,6 +223,11 @@ class MerchantDetailsTableViewController: UITableViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
+    
+    
+    //Open Google Maps
+    
+    
     
    
 
@@ -239,7 +298,23 @@ class MerchantDetailsTableViewController: UITableViewController {
     }
     */
     
+    
+    
 
+    @IBAction func facebookButtonTapped(sender: AnyObject) {
+        
+        var  fbURL = viaSegue?.merchant_facebook
+        
+        var fbURLWeb: NSURL = NSURL(string: fbURL!)!
+       
+        
+        
+            // open in safari
+            UIApplication.sharedApplication().openURL(fbURLWeb)
+        
+        
+    }
+   
 
 }
 

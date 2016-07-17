@@ -13,9 +13,11 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     @IBOutlet weak var userFullNameLabel: UILabel!
     
+    //Image Cache Declaration
+    var imageCache = NSCache()
     
-    var menuItems:[String] = ["Main","Scan QR Code", "About", "Sign out"]
-
+    var menuItems:[String] = ["Main","Scan QR Code","Cards", "About", "Sign out"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,8 +27,8 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.size.width / 2
         
-       profilePhotoImageView.clipsToBounds = true
-
+        profilePhotoImageView.clipsToBounds = true
+        
         // Do any additional setup after loading the view.
     }
     
@@ -44,36 +46,58 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let userFullName = userFistName + " " + userLastName
         userFullNameLabel.text = userFullName
         
-        if(profilePhotoImageView.image == nil)
-        {
-            let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId")
-            let imageUrl = NSURL(string:"http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/profile-pictures/\(userId!)/user-profile.jpg")
+        
+        
+        
+        
+        
+        if (profilePhotoImageView.image == nil) {
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //profile Image image with cache
+            let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId")
+            
+            if let imageUrl = NSURL(string:"http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/profile-pictures/\(userId!)/user-profile.jpg") {
                 
-                let imageData = NSData(contentsOfURL: imageUrl!)
-                
-                if(imageData != nil)
-                {
-                    dispatch_async(dispatch_get_main_queue(),{
-                        self.profilePhotoImageView.image = UIImage(data: imageData!)
-                    })
+                if let image = imageCache.objectForKey(imageUrl) as? UIImage {
+                    
+                    profilePhotoImageView.image = image
+                }else{
+                    
+                    let imageURL:String  = String(imageUrl)
+                    
+                    NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: imageURL)!, completionHandler: { (data, response, error) -> Void in
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        
+                        let image = UIImage(data: data!)
+                        
+                        self.imageCache.setObject(image!, forKey: imageUrl)
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            self.profilePhotoImageView.image = image
+                            
+                        })
+                        
+                    }).resume()
+                    
                 }
+                
                 
             }
             
         }
         
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     //Change profile picture button
     
-   
+    
     @IBAction func selectProfilePhotoButtonTapped(sender: AnyObject) {
         
         let myImagePicker = UIImagePickerController()
@@ -101,7 +125,7 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func myImageUploadRequest()
     {
-        let myUrl = NSURL(string: "http://localhost/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/imageUpload.php");
+        let myUrl = NSURL(string: "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/imageUpload.php");
         
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
@@ -166,7 +190,7 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
     }
-
+    
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         let body = NSMutableData();
         
@@ -217,12 +241,12 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         
-    
+        
         return menuItems.count
     }
     
-   
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         //instatiate table view cell
         
@@ -231,14 +255,14 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
         myCell.textLabel?.text = menuItems[indexPath.row]
         
         return myCell
-    
+        
     }
     //for clicking side menu links
- 
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    
+        
     {
-    
+        
         switch(indexPath.row)
         {
         case 0:
@@ -281,6 +305,26 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case 2:
             
             //instatiate main page
+            var cardsPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CardsTableViewController") as! CardsTableViewController
+            
+            //Wrap into navigtion controller
+            var cardsPageNav = UINavigationController(rootViewController: cardsPageViewController)
+            
+            //set to navigation drawer by refernecing app delegate coz it was created in appdelegate
+            
+            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            appDelegate.drawerContainer!.centerViewController = cardsPageNav
+            
+            //Close side panel
+            appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+            
+            break
+            
+            
+        case 3:
+            
+            //instatiate main page
             var aboutPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
             
             //Wrap into navigtion controller
@@ -299,7 +343,7 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             
             
-        case 3:
+        case 4:
             
             NSUserDefaults.standardUserDefaults().removeObjectForKey("userFirstName")
             NSUserDefaults.standardUserDefaults().removeObjectForKey("userLastName")
@@ -320,19 +364,19 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             break
             
-
+            
             
         default:
             print("Not handled")
-        
+            
         }
-    
+        
     }
     
     
-   
     
-
+    
+    
 }
 
 

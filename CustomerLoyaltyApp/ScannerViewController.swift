@@ -13,11 +13,24 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    
 
+    @IBOutlet weak var scanSquareImageView: UIImageView!
+    @IBOutlet weak var instructionLabel: UILabel!
+    //@IBOutlet weak var scanResult: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    scanSquareImageView.image = UIImage(named: "scan_image")
+        
+        instructionLabel.text = "Please hover over QR code to scan"
+        
+        self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        
+        self.navigationController?.navigationBar.translucent = true
         
         
         view.backgroundColor = UIColor.blackColor()
@@ -69,6 +82,10 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        //Bring Views to front
+        self.view .bringSubviewToFront(scanSquareImageView)
+        
+        self.view .bringSubviewToFront(instructionLabel)
         
         if (captureSession?.running == false) {
             captureSession.startRunning();
@@ -97,8 +114,190 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     }
     
     func foundCode(code: String) {
-        print(code)
+        
+     //Qr Code Scanned
+        
+        //progress indicator
+        let spinningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        spinningActivity.labelText = "Verifying Qr Code"
+        spinningActivity.detailsLabelText = "Please wait"
+        //post http request
+        let myUrl = NSURL(string: "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/checkQr.php");
+        
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
+        
+        let postString = "qrCode=\(code)";
+        
+        
+        
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        
+        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue())
+            {
+                spinningActivity.hide(true)
+                
+                if(error != nil)
+                {
+                    //Display an alert message
+                    let myAlert = UIAlertController(title: "Alert", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil)
+                    myAlert.addAction(okAction);
+                    self.presentViewController(myAlert, animated: true, completion: nil)
+                    return
+                }
+                
+                
+                
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
+                    
+                    if let parseJSON = json {
+                        
+                        let qrId = parseJSON["qrId"] as? String
+                        let merchantID = parseJSON["merchantID"] as? String
+                        if(qrId != nil)
+                        {
+                            
+                           ///
+                            //Qr Code Scanned
+                            
+                            //let userId = "3"
+                            //let merchantID = "1"
+                      
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            //Activity indicator
+                            
+                            
+                            let spinningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                            
+                            spinningActivity.labelText = "Updating your points please wait"
+                            spinningActivity.detailsLabelText = "Please wait"
+                            // Send HTTP POST
+                            
+                            //url to update card points
+                             let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId")
+                            
+                            let myUrl = NSURL(string: "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/addPointToCard.php");
+                            let request = NSMutableURLRequest(URL:myUrl!);
+                            request.HTTPMethod = "POST";
+                            
+                            let postString = "userId=\(userId!)&merchantID=\(merchantID!)";
+                            
+                            print(userId)
+                          
+                            
+                            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+                            
+                            NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+                                
+                                dispatch_async(dispatch_get_main_queue())
+                                {
+                                    
+                                    spinningActivity.hide(true)
+                                    
+                                    if error != nil {
+                                        self.displayAlertMessage(error!.localizedDescription)
+                                        return
+                                    }
+                                    
+                                    do {
+                                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
+                                        
+                                        if let parseJSON = json {
+                                            
+                                            let userId = parseJSON["userId"] as? String
+                                            
+                                            if( userId != nil)
+                                            {
+                                                let myAlert = UIAlertController(title: "Alert", message: "Points Updated", preferredStyle: UIAlertControllerStyle.Alert);
+                                                
+                                                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){(action) in
+                                                    
+                                                    self.dismissViewControllerAnimated(true, completion: nil)
+                                                }
+                                                
+                                                myAlert.addAction(okAction);
+                                                self.presentViewController(myAlert, animated: true, completion: nil)
+                                            } else {
+                                                let errorMessage = parseJSON["message"] as? String
+                                                if(errorMessage != nil)
+                                                {
+                                                    self.displayAlertMessage(errorMessage!)
+                                                }
+                                                
+                                            }
+                                            
+                                        }
+                                    } catch{
+                                        print(error)
+                                    }
+                                    
+                                    
+                                    
+                                }
+                                
+                            }).resume()
+                            
+
+                            
+                            
+                            
+                            
+                            ///
+                            
+                            
+                            
+                            
+                        } else {
+                            // display an alert message
+                            let userMessage = parseJSON["message"] as? String
+                            let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+                            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil)
+                            myAlert.addAction(okAction);
+                            self.presentViewController(myAlert, animated: true, completion: nil)
+                        }
+                        
+                    }
+                } catch
+                {
+                    print(error)
+                }
+                
+                
+            }
+            
+            
+            
+        }).resume()
+        
+        
+        
+        
+        
+        //print(code)
+        // print("some code")
+        
+        
+        
+        //Display an alert message
+        //displayAlertMessage(code)
+        // return
     }
+    
+
+    
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -125,7 +324,22 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
         
         appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
         
+       
         
+
+    }
+    
+    
+    
+    func displayAlertMessage(userMessage: String)
+    {
+        var myAlert = UIAlertController(title: "Alert", message:
+            userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        
+        let okAction = UIAlertAction(title: "OK", style:
+            UIAlertActionStyle.Default, handler: nil)
+        myAlert.addAction(okAction);
+        self.presentViewController(myAlert, animated: true, completion: nil)
     }
     
 
