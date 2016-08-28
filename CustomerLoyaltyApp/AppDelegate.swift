@@ -17,7 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        
         // Override point for customization after application launch.
+        
+        //Status Bar
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+
         
         //Remeber User Sign In State
         
@@ -76,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Instatiate view controllers Create View Controllers
         
-        var mainPage:MainPageViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+        var mainPage:MyTabBarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MyTabBarViewController") as! MyTabBarViewController
         var rightSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
         var leftSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
         
@@ -89,8 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Create navigation Drawer
         
-       drawerContainer = MMDrawerController(centerViewController: mainPageNav, rightDrawerViewController: rightSideMenuNav)
-         drawerContainer = MMDrawerController(centerViewController: mainPageNav, leftDrawerViewController: leftSideMenuNav)
+       drawerContainer = MMDrawerController(centerViewController: mainPageNav, leftDrawerViewController: leftSideMenuNav, rightDrawerViewController: rightSideMenuNav)
         
         drawerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         drawerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
@@ -98,6 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Set to window root controller
         
         window?.rootViewController = drawerContainer
+        
         
         
         

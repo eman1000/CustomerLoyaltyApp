@@ -38,17 +38,16 @@ class CardsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
       
-        
+        tableView.reloadData()
         //table view bg
         
        tableView.backgroundColor = UIColor(patternImage: UIImage(named: "grad_bg")!)
         
         //navigation bar bg
-        // UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-       // let img = UIImage(named: "nav-bg")
-        //UINavigationBar.appearance().tintColor = UIColor.orangeColor()
-        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
         
@@ -87,7 +86,9 @@ class CardsTableViewController: UITableViewController {
     
     
     
-    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
     
     
     
@@ -456,7 +457,8 @@ class CardsTableViewController: UITableViewController {
         
         let task = urlSession.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             
-            
+          
+          
             
             if let error = error {
                 
@@ -475,6 +477,10 @@ class CardsTableViewController: UITableViewController {
                 
                 
                 self.cards = self.parseJsonData(data)
+                
+                
+                
+              
                 
                 
                 
@@ -519,12 +525,17 @@ class CardsTableViewController: UITableViewController {
             let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
             
             
+          
+          
             
             //Parse Json Data
             
             
             
-            let jsonCards = jsonResult?["cards"] as! [AnyObject]
+            if let jsonCards = jsonResult?["cards"] as? [AnyObject] {
+            
+           
+            
             
             for jsonCard in jsonCards {
                 
@@ -562,6 +573,18 @@ class CardsTableViewController: UITableViewController {
             
             
             
+            }else{
+            
+                
+                    // Display an alert message
+                    let userMessage = "You have not added any cards, please scan a QR code at our partner stores to add a card."
+                    self.displayAlertMessage(userMessage)
+                    
+                
+            
+            }
+        
+        
         }catch {
             
             print(error)
@@ -583,20 +606,20 @@ class CardsTableViewController: UITableViewController {
     }
     
     
-    /*Send Data Via Segue
+    //Send Data Via Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let identifier = segue.identifier{
             
             switch identifier {
-            case "ShowDetails":
-                let merchantDetailVC = segue.destinationViewController as! MerchantDetailsTableViewController
+            case "showCardDetails":
+                let cardDetailVC = segue.destinationViewController as! CardDetailTableViewController
                 
                 
                 let indexPath = tableView.indexPathForSelectedRow
-                let dataToPass = merchants[indexPath!.row]
+                let dataToPass = cards[indexPath!.row]
                 
-                merchantDetailVC.viaSegue = dataToPass
+                cardDetailVC.viaCardsSegue = dataToPass
                 
                 
             default:
@@ -613,7 +636,7 @@ class CardsTableViewController: UITableViewController {
         
         
     }
-    */
+    
     
     
     override func viewWillAppear(animated: Bool) {
@@ -627,6 +650,18 @@ class CardsTableViewController: UITableViewController {
         
     }
     
+    
+    
+    func displayAlertMessage(userMessage: String)
+    {
+        var myAlert = UIAlertController(title: "Alert", message:
+            userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        
+        let okAction = UIAlertAction(title: "OK", style:
+            UIAlertActionStyle.Default, handler: nil)
+        myAlert.addAction(okAction);
+        self.presentViewController(myAlert, animated: true, completion: nil)
+    }
     
     
     

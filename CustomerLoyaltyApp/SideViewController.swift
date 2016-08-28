@@ -16,10 +16,16 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Image Cache Declaration
     var imageCache = NSCache()
     
-    var menuItems:[String] = ["Main","Scan QR Code","Cards", "About", "Sign out"]
+    var menuItems:[String] = ["Favourites","View Profile","Settings", "About", "Sign out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //navigation bar bg
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         //Round profile pic
         

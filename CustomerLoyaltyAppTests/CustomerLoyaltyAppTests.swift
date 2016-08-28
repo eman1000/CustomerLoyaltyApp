@@ -11,14 +11,29 @@ import XCTest
 
 class CustomerLoyaltyAppTests: XCTestCase {
     
+    var testController : MainPageViewController?
+    
     override func setUp() {
         super.setUp()
+        
+        testController =  MainPageViewController()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        testController = nil
+    }
+    
+    func testConvertIntToString(){
+    
+    var expectedValue = 10
+        var actualValue = testController?.convertStringToInt("10")
+        
+        XCTAssertEqual(expectedValue, actualValue!, "expected value \(expectedValue) is not equal to actual value \(actualValue)")
+    
     }
     
     func testExample() {

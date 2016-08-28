@@ -11,6 +11,7 @@ import Foundation
 class Card {
     //var name:String = ""
     
+    var merchant_id:String = ""
     var merchant_name:String = ""
     var merchant_category:String = ""
     var bg_image:String = ""

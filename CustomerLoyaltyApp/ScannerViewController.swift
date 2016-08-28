@@ -23,14 +23,19 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
 
         // Do any additional setup after loading the view.
         
+     
+        
+        //navigation bar bg
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
+        
     scanSquareImageView.image = UIImage(named: "scan_image")
         
         instructionLabel.text = "Please hover over QR code to scan"
-        
-        self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
-        self.navigationController?.navigationBar.shadowImage = nil
-        
-        self.navigationController?.navigationBar.translucent = true
+     
         
         
         view.backgroundColor = UIColor.blackColor()
@@ -343,6 +348,10 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     }
     
 
+    @IBAction func cancelSegue(sender: AnyObject) {
+        self.performSegueWithIdentifier("customSegue", sender: self)
+        
+    }
     /*
     // MARK: - Navigation
 

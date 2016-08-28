@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		7D001CDD1D23EF9800B8E8DE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */; };
+		7D01666B1D3E57C2002BEEC4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D01666A1D3E57C2002BEEC4 /* logo.png */; };
+		7D09C5011D7348F3006250B7 /* Hearts Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D09C5001D7348F3006250B7 /* Hearts Filled-50.png */; };
+		7D0B2AB11D560111007A51A2 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B2AB01D560111007A51A2 /* Gift.swift */; };
+		7D0B2AB51D561588007A51A2 /* GiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B2AB41D561588007A51A2 /* GiftTableViewCell.swift */; };
 		7D0F390D1D35292400173166 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F390C1D35292400173166 /* Cards.swift */; };
 		7D11CC1B1D362E7F00D17CEC /* scan_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D11CC1A1D362E7F00D17CEC /* scan_image.png */; };
 		7D11CC1D1D3658CB00D17CEC /* Message-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D11CC1C1D3658CB00D17CEC /* Message-50.png */; };
 		7D11CC1F1D36594000D17CEC /* Domain-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D11CC1E1D36594000D17CEC /* Domain-50.png */; };
 		7D11CC211D3659ED00D17CEC /* Facebook-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D11CC201D3659ED00D17CEC /* Facebook-50.png */; };
+		7D15446B1D3CC297004E1DBD /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D15446A1D3CC297004E1DBD /* MyTabBarViewController.swift */; };
 		7D1AE7CB1D210D1E0020CDF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7CA1D210D1E0020CDF3 /* AppDelegate.swift */; };
 		7D1AE7CD1D210D1E0020CDF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7CC1D210D1E0020CDF3 /* ViewController.swift */; };
 		7D1AE7D01D210D1E0020CDF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1AE7CE1D210D1E0020CDF3 /* Main.storyboard */; };
@@ -20,6 +25,7 @@
 		7D1AE7D51D210D1E0020CDF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1AE7D31D210D1E0020CDF3 /* LaunchScreen.storyboard */; };
 		7D1AE7E01D210D1F0020CDF3 /* CustomerLoyaltyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7DF1D210D1F0020CDF3 /* CustomerLoyaltyAppTests.swift */; };
 		7D1AE7EB1D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1AE7EA1D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.swift */; };
+		7D3764331D4F94CB00E31312 /* CardDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3764321D4F94CB00E31312 /* CardDetailTableViewController.swift */; };
 		7D43912A1D280DB000F87BCA /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4391291D280DB000F87BCA /* SideViewController.swift */; };
 		7D47D3031D2E061D00ECAC5E /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47D3021D2E061D00ECAC5E /* Merchant.swift */; };
 		7D47D3051D2E744A00ECAC5E /* Marker-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D47D3041D2E744900ECAC5E /* Marker-50.png */; };
@@ -45,6 +51,7 @@
 		7DD3D9A81D25615C00F2CFBA /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9A11D25615C00F2CFBA /* MMDrawerController.m */; };
 		7DD3D9A91D25615C00F2CFBA /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9A41D25615C00F2CFBA /* MMDrawerVisualState.m */; };
 		7DD3D9AA1D25615C00F2CFBA /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9A61D25615C00F2CFBA /* UIViewController+MMDrawerController.m */; };
+		7DD8B83E1D4139CA002E2D42 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD8B83D1D4139CA002E2D42 /* CustomSegue.swift */; };
 		7DEB1FD11D2D82AE002C3BD6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEB1FD01D2D82AE002C3BD6 /* TableViewCell.swift */; };
 		7DEB1FD41D2D835F002C3BD6 /* 1.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 7DEB1FD21D2D835F002C3BD6 /* 1.imageset */; };
 		7DEB1FD51D2D835F002C3BD6 /* 2.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 7DEB1FD31D2D835F002C3BD6 /* 2.imageset */; };
@@ -71,11 +78,16 @@
 
 /* Begin PBXFileReference section */
 		7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7D01666A1D3E57C2002BEEC4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		7D09C5001D7348F3006250B7 /* Hearts Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts Filled-50.png"; sourceTree = "<group>"; };
+		7D0B2AB01D560111007A51A2 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		7D0B2AB41D561588007A51A2 /* GiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftTableViewCell.swift; sourceTree = "<group>"; };
 		7D0F390C1D35292400173166 /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		7D11CC1A1D362E7F00D17CEC /* scan_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_image.png; sourceTree = "<group>"; };
 		7D11CC1C1D3658CB00D17CEC /* Message-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Message-50.png"; sourceTree = "<group>"; };
 		7D11CC1E1D36594000D17CEC /* Domain-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Domain-50.png"; sourceTree = "<group>"; };
 		7D11CC201D3659ED00D17CEC /* Facebook-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook-50.png"; sourceTree = "<group>"; };
+		7D15446A1D3CC297004E1DBD /* MyTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		7D1AE7C71D210D1E0020CDF3 /* CustomerLoyaltyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomerLoyaltyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1AE7CA1D210D1E0020CDF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D1AE7CC1D210D1E0020CDF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +101,7 @@
 		7D1AE7E61D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomerLoyaltyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1AE7EA1D210D1F0020CDF3 /* CustomerLoyaltyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerLoyaltyAppUITests.swift; sourceTree = "<group>"; };
 		7D1AE7EC1D210D1F0020CDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D3764321D4F94CB00E31312 /* CardDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailTableViewController.swift; sourceTree = "<group>"; };
 		7D4391291D280DB000F87BCA /* SideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
 		7D47D3021D2E061D00ECAC5E /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
 		7D47D3041D2E744900ECAC5E /* Marker-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marker-50.png"; sourceTree = "<group>"; };
@@ -121,6 +134,7 @@
 		7DD3D9A41D25615C00F2CFBA /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		7DD3D9A51D25615C00F2CFBA /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		7DD3D9A61D25615C00F2CFBA /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		7DD8B83D1D4139CA002E2D42 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		7DEB1FD01D2D82AE002C3BD6 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7DEB1FD21D2D835F002C3BD6 /* 1.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1.imageset; sourceTree = "<group>"; };
 		7DEB1FD31D2D835F002C3BD6 /* 2.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 2.imageset; sourceTree = "<group>"; };
@@ -176,6 +190,7 @@
 		7D1AE7C91D210D1E0020CDF3 /* CustomerLoyaltyApp */ = {
 			isa = PBXGroup;
 			children = (
+				7D01666A1D3E57C2002BEEC4 /* logo.png */,
 				7D11CC1A1D362E7F00D17CEC /* scan_image.png */,
 				7DC0E9D31D34B9C30023581B /* white_square.png */,
 				7DC0E9D11D34A1F60023581B /* nav-bg.png */,
@@ -192,6 +207,7 @@
 				7DD3D99C1D2544FF00F2CFBA /* MBProgressHUD.m */,
 				7D1AE7CA1D210D1E0020CDF3 /* AppDelegate.swift */,
 				7D1AE7CC1D210D1E0020CDF3 /* ViewController.swift */,
+				7DD8B83D1D4139CA002E2D42 /* CustomSegue.swift */,
 				7D1AE7CE1D210D1E0020CDF3 /* Main.storyboard */,
 				7D1AE7D11D210D1E0020CDF3 /* Assets.xcassets */,
 				7D1AE7D31D210D1E0020CDF3 /* LaunchScreen.storyboard */,
@@ -205,6 +221,10 @@
 				7DC0E9D51D34BC390023581B /* CardsTableViewController.swift */,
 				7DC0E9D91D34C02F0023581B /* CardTableViewCell.swift */,
 				7D0F390C1D35292400173166 /* Cards.swift */,
+				7D15446A1D3CC297004E1DBD /* MyTabBarViewController.swift */,
+				7D3764321D4F94CB00E31312 /* CardDetailTableViewController.swift */,
+				7D0B2AB01D560111007A51A2 /* Gift.swift */,
+				7D0B2AB41D561588007A51A2 /* GiftTableViewCell.swift */,
 			);
 			path = CustomerLoyaltyApp;
 			sourceTree = "<group>";
@@ -230,6 +250,7 @@
 		7D66A0091D2A7A6600C5D8B6 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				7D09C5001D7348F3006250B7 /* Hearts Filled-50.png */,
 				7D11CC201D3659ED00D17CEC /* Facebook-50.png */,
 				7D11CC1E1D36594000D17CEC /* Domain-50.png */,
 				7D11CC1C1D3658CB00D17CEC /* Message-50.png */,
@@ -379,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D47D3071D2E759A00ECAC5E /* Hearts-50.png in Resources */,
+				7D01666B1D3E57C2002BEEC4 /* logo.png in Resources */,
 				7D9C42131D3136CF00933D09 /* Phone-50.png in Resources */,
 				7DC0E9D01D348EBD0023581B /* grad_bg.png in Resources */,
 				7DEB1FD91D2D8398002C3BD6 /* p2.imageset in Resources */,
@@ -393,6 +415,7 @@
 				7DEB1FD51D2D835F002C3BD6 /* 2.imageset in Resources */,
 				7DC0E9D21D34A1F60023581B /* nav-bg.png in Resources */,
 				7DEB1FD41D2D835F002C3BD6 /* 1.imageset in Resources */,
+				7D09C5011D7348F3006250B7 /* Hearts Filled-50.png in Resources */,
 				7D8E90E01D32304400B73D5E /* Compact Camera Filled-50 (2).png in Resources */,
 				7D1AE7D51D210D1E0020CDF3 /* LaunchScreen.storyboard in Resources */,
 				7D1AE7D21D210D1E0020CDF3 /* Assets.xcassets in Resources */,
@@ -425,23 +448,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DEB1FD11D2D82AE002C3BD6 /* TableViewCell.swift in Sources */,
+				7D0B2AB11D560111007A51A2 /* Gift.swift in Sources */,
 				7D47D3031D2E061D00ECAC5E /* Merchant.swift in Sources */,
 				7DD3D9991D250F1400F2CFBA /* MainPageViewController.swift in Sources */,
 				7DD3D99D1D2544FF00F2CFBA /* MBProgressHUD.m in Sources */,
+				7DD8B83E1D4139CA002E2D42 /* CustomSegue.swift in Sources */,
 				7DD3D9A81D25615C00F2CFBA /* MMDrawerController.m in Sources */,
 				7D8E90E81D32355700B73D5E /* ScannerViewController.swift in Sources */,
 				7DD3D9AA1D25615C00F2CFBA /* UIViewController+MMDrawerController.m in Sources */,
 				7DC0E9DA1D34C02F0023581B /* CardTableViewCell.swift in Sources */,
+				7D15446B1D3CC297004E1DBD /* MyTabBarViewController.swift in Sources */,
 				7DD3D9A91D25615C00F2CFBA /* MMDrawerVisualState.m in Sources */,
 				7D43912A1D280DB000F87BCA /* SideViewController.swift in Sources */,
 				7DAC7CDF1D29E78E00EE0865 /* AboutViewController.swift in Sources */,
 				7DD3D9971D2508CC00F2CFBA /* SignInViewController.swift in Sources */,
+				7D0B2AB51D561588007A51A2 /* GiftTableViewCell.swift in Sources */,
 				7DC0E9D61D34BC390023581B /* CardsTableViewController.swift in Sources */,
 				7D001CDD1D23EF9800B8E8DE /* SignUpViewController.swift in Sources */,
 				7D9C420D1D30EF5E00933D09 /* MerchantDetailsTableViewController.swift in Sources */,
 				7D1AE7CD1D210D1E0020CDF3 /* ViewController.swift in Sources */,
 				7D0F390D1D35292400173166 /* Cards.swift in Sources */,
 				7D1AE7CB1D210D1E0020CDF3 /* AppDelegate.swift in Sources */,
+				7D3764331D4F94CB00E31312 /* CardDetailTableViewController.swift in Sources */,
 				7DD3D9A71D25615C00F2CFBA /* MMDrawerBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
