@@ -405,6 +405,7 @@
                                         <connections>
                                             <outlet property="bgImageView" destination="GVr-Aw-LLI" id="S0Z-l2-V3D"/>
                                             <outlet property="distanceLabel" destination="DbO-P2-oBA" id="nfC-ho-4wp"/>
+                                            <outlet property="favButton" destination="ezv-Ei-bji" id="Q1w-c6-hTe"/>
                                             <outlet property="logoImageView" destination="zDr-mT-g61" id="xLa-2z-QPS"/>
                                             <outlet property="merchantCity" destination="N5V-Pw-iu0" id="3VH-J8-Ict"/>
                                             <outlet property="merchantNameLabel" destination="dPE-iH-WFB" id="sLx-nc-mFE"/>
@@ -1649,7 +1650,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="q4D-Hn-oHD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfz-D9-r4E">

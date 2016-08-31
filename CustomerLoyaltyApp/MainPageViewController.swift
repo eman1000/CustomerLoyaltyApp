@@ -14,8 +14,6 @@
 
 //
 
-
-
 //  Created by Emmancipate Musemwa on 30/06/2016.
 
 
@@ -143,7 +141,17 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         cell.merchantNameLabel?.text = data.merchant_name
         cell.merchantCity?.text = data.merchant_city
         
-       
+          let favID = Int(data.favourite_id)
+        
+        if(favID < 1){
+            
+            cell.favButton.setImage(UIImage(named: "Hearts-50.png"), forState: UIControlState.Normal)
+        }else{
+            
+             cell.favButton.setImage(UIImage(named: "Hearts-Filled-50.png"), forState: UIControlState.Normal)
+        
+        }
+        
         //background image with cache
         
         if let bgImageURL = data.bg_image  as? String {
@@ -171,11 +179,10 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                 }).resume()
                 
             }
-            
-            
+     
         }
         
-        
+    
         //logo image with catche
         //round logo
         
@@ -262,11 +269,7 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         })
         task.resume()
     }
-    
-    
-    
-    
-    
+
     func parseJsonData(data: NSData) -> [Merchant] {
         do {
             
@@ -280,9 +283,7 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
             let jsonMerchants = jsonResult?["merchants"] as! [AnyObject]
             
             for jsonMerchant in jsonMerchants {
-                
-                
-                
+           
                 let merchant = Merchant()
                 merchant.merchant_id = jsonMerchant["merchant_id"] as! String
                 merchant.merchant_name = jsonMerchant["merchant_name"] as! String
@@ -302,11 +303,10 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                 merchant.merchant_facebook = jsonMerchant["merchant_facebook"] as! String
                 merchant.merchant_website = jsonMerchant["merchant_website"] as! String
                 merchant.merchant_email = jsonMerchant["merchant_email"] as! String
-                
-                
+                 merchant.favourite_id = jsonMerchant["favourite_id"] as! String
+              
                 //location
-                
-                
+             
                 var myLat = currentCoordinate?.latitude
                 var myLong = currentCoordinate?.longitude
                 let lat:Double = ((merchant.latitude) as NSString).doubleValue
@@ -316,13 +316,9 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                 let distance = location2.distanceFromLocation(mylocation)
                 let distanceKM = distance / 1000
                 merchant.distanceN = distanceKM
-                
-                merchants.append(merchant)
-                
-            }
-            
-            
-            
+          merchants.append(merchant)
+         }
+      
         }catch {
             
             print(error)
@@ -341,7 +337,8 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
           data = merchants[indexPath!.row]
        let  merchantID  = data.merchant_id
         //Activity indicator
-        
+     
+         sender.setImage(UIImage(named: "Hearts-Filled-50.png"), forState: UIControlState.Normal)
         
         let spinningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         

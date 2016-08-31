@@ -30,6 +30,7 @@ class Merchant {
      var longitude:String = ""
      var latitude:String = ""
     var distanceN:Double = 0.0
+    var favourite_id = ""
     
     
 

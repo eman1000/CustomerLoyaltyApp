@@ -11,6 +11,7 @@
 class TableViewCell: UITableViewCell
 {
     
+    @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var bgImageView: UIImageView!
     
     @IBOutlet weak var overlayView: UIView!

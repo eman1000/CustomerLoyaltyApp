@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7D001CDD1D23EF9800B8E8DE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */; };
 		7D01666B1D3E57C2002BEEC4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D01666A1D3E57C2002BEEC4 /* logo.png */; };
-		7D09C5011D7348F3006250B7 /* Hearts Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D09C5001D7348F3006250B7 /* Hearts Filled-50.png */; };
 		7D0B2AB11D560111007A51A2 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B2AB01D560111007A51A2 /* Gift.swift */; };
 		7D0B2AB51D561588007A51A2 /* GiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B2AB41D561588007A51A2 /* GiftTableViewCell.swift */; };
 		7D0F390D1D35292400173166 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F390C1D35292400173166 /* Cards.swift */; };
@@ -30,6 +29,7 @@
 		7D47D3031D2E061D00ECAC5E /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47D3021D2E061D00ECAC5E /* Merchant.swift */; };
 		7D47D3051D2E744A00ECAC5E /* Marker-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D47D3041D2E744900ECAC5E /* Marker-50.png */; };
 		7D47D3071D2E759A00ECAC5E /* Hearts-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D47D3061D2E759A00ECAC5E /* Hearts-50.png */; };
+		7D5F26121D76CFE4003E5988 /* Hearts-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D5F26111D76CFE4003E5988 /* Hearts-Filled-50.png */; };
 		7D8E90E01D32304400B73D5E /* Compact Camera Filled-50 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 7D8E90DF1D32304400B73D5E /* Compact Camera Filled-50 (2).png */; };
 		7D8E90E81D32355700B73D5E /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E90E71D32355700B73D5E /* ScannerViewController.swift */; };
 		7D9A33E41D32169F00BE9FA4 /* Menu-50 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A33E31D32169F00BE9FA4 /* Menu-50 (2).png */; };
@@ -79,7 +79,6 @@
 /* Begin PBXFileReference section */
 		7D001CDC1D23EF9800B8E8DE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7D01666A1D3E57C2002BEEC4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		7D09C5001D7348F3006250B7 /* Hearts Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts Filled-50.png"; sourceTree = "<group>"; };
 		7D0B2AB01D560111007A51A2 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
 		7D0B2AB41D561588007A51A2 /* GiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftTableViewCell.swift; sourceTree = "<group>"; };
 		7D0F390C1D35292400173166 /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		7D47D3021D2E061D00ECAC5E /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
 		7D47D3041D2E744900ECAC5E /* Marker-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marker-50.png"; sourceTree = "<group>"; };
 		7D47D3061D2E759A00ECAC5E /* Hearts-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts-50.png"; sourceTree = "<group>"; };
+		7D5F26111D76CFE4003E5988 /* Hearts-Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts-Filled-50.png"; sourceTree = "<group>"; };
 		7D8E90DF1D32304400B73D5E /* Compact Camera Filled-50 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera Filled-50 (2).png"; sourceTree = "<group>"; };
 		7D8E90E71D32355700B73D5E /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		7D9A33E31D32169F00BE9FA4 /* Menu-50 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-50 (2).png"; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 		7D66A0091D2A7A6600C5D8B6 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				7D09C5001D7348F3006250B7 /* Hearts Filled-50.png */,
+				7D5F26111D76CFE4003E5988 /* Hearts-Filled-50.png */,
 				7D11CC201D3659ED00D17CEC /* Facebook-50.png */,
 				7D11CC1E1D36594000D17CEC /* Domain-50.png */,
 				7D11CC1C1D3658CB00D17CEC /* Message-50.png */,
@@ -415,12 +415,12 @@
 				7DEB1FD51D2D835F002C3BD6 /* 2.imageset in Resources */,
 				7DC0E9D21D34A1F60023581B /* nav-bg.png in Resources */,
 				7DEB1FD41D2D835F002C3BD6 /* 1.imageset in Resources */,
-				7D09C5011D7348F3006250B7 /* Hearts Filled-50.png in Resources */,
 				7D8E90E01D32304400B73D5E /* Compact Camera Filled-50 (2).png in Resources */,
 				7D1AE7D51D210D1E0020CDF3 /* LaunchScreen.storyboard in Resources */,
 				7D1AE7D21D210D1E0020CDF3 /* Assets.xcassets in Resources */,
 				7D9C42151D3146CA00933D09 /* Marker-2.png in Resources */,
 				7DC4B1511D34F66300B5914C /* stamp_star.png in Resources */,
+				7D5F26121D76CFE4003E5988 /* Hearts-Filled-50.png in Resources */,
 				7D1AE7D01D210D1E0020CDF3 /* Main.storyboard in Resources */,
 				7DEB1FDB1D2D8507002C3BD6 /* p1.imageset in Resources */,
 			);
