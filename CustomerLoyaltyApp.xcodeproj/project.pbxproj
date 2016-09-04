@@ -29,6 +29,8 @@
 		7D47D3031D2E061D00ECAC5E /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47D3021D2E061D00ECAC5E /* Merchant.swift */; };
 		7D47D3051D2E744A00ECAC5E /* Marker-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D47D3041D2E744900ECAC5E /* Marker-50.png */; };
 		7D47D3071D2E759A00ECAC5E /* Hearts-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D47D3061D2E759A00ECAC5E /* Hearts-50.png */; };
+		7D50CC6C1D7AF2B30085060E /* Hearts-grey-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D50CC6B1D7AF2B20085060E /* Hearts-grey-50.png */; };
+		7D50CC6E1D7B0C8C0085060E /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50CC6D1D7B0C8C0085060E /* FavouritesViewController.swift */; };
 		7D5F26121D76CFE4003E5988 /* Hearts-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D5F26111D76CFE4003E5988 /* Hearts-Filled-50.png */; };
 		7D8E90E01D32304400B73D5E /* Compact Camera Filled-50 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 7D8E90DF1D32304400B73D5E /* Compact Camera Filled-50 (2).png */; };
 		7D8E90E81D32355700B73D5E /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E90E71D32355700B73D5E /* ScannerViewController.swift */; };
@@ -37,6 +39,7 @@
 		7D9C420D1D30EF5E00933D09 /* MerchantDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9C420C1D30EF5E00933D09 /* MerchantDetailsTableViewController.swift */; };
 		7D9C42131D3136CF00933D09 /* Phone-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9C42121D3136CF00933D09 /* Phone-50.png */; };
 		7D9C42151D3146CA00933D09 /* Marker-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9C42141D3146CA00933D09 /* Marker-2.png */; };
+		7D9E72C71D7B292F00500D39 /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E72C61D7B292F00500D39 /* Favourite.swift */; };
 		7DAC7CDF1D29E78E00EE0865 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC7CDE1D29E78E00EE0865 /* AboutViewController.swift */; };
 		7DC0E9D01D348EBD0023581B /* grad_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC0E9CF1D348EBD0023581B /* grad_bg.png */; };
 		7DC0E9D21D34A1F60023581B /* nav-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC0E9D11D34A1F60023581B /* nav-bg.png */; };
@@ -44,6 +47,7 @@
 		7DC0E9D61D34BC390023581B /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0E9D51D34BC390023581B /* CardsTableViewController.swift */; };
 		7DC0E9DA1D34C02F0023581B /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0E9D91D34C02F0023581B /* CardTableViewCell.swift */; };
 		7DC4B1511D34F66300B5914C /* stamp_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC4B1501D34F66300B5914C /* stamp_star.png */; };
+		7DCEEBD91D7B18A40062B125 /* FavouritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCEEBD81D7B18A40062B125 /* FavouritesTableViewCell.swift */; };
 		7DD3D9971D2508CC00F2CFBA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9961D2508CC00F2CFBA /* SignInViewController.swift */; };
 		7DD3D9991D250F1400F2CFBA /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D9981D250F1400F2CFBA /* MainPageViewController.swift */; };
 		7DD3D99D1D2544FF00F2CFBA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3D99C1D2544FF00F2CFBA /* MBProgressHUD.m */; };
@@ -105,6 +109,8 @@
 		7D47D3021D2E061D00ECAC5E /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
 		7D47D3041D2E744900ECAC5E /* Marker-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marker-50.png"; sourceTree = "<group>"; };
 		7D47D3061D2E759A00ECAC5E /* Hearts-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts-50.png"; sourceTree = "<group>"; };
+		7D50CC6B1D7AF2B20085060E /* Hearts-grey-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts-grey-50.png"; sourceTree = "<group>"; };
+		7D50CC6D1D7B0C8C0085060E /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		7D5F26111D76CFE4003E5988 /* Hearts-Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hearts-Filled-50.png"; sourceTree = "<group>"; };
 		7D8E90DF1D32304400B73D5E /* Compact Camera Filled-50 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera Filled-50 (2).png"; sourceTree = "<group>"; };
 		7D8E90E71D32355700B73D5E /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 		7D9C420C1D30EF5E00933D09 /* MerchantDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantDetailsTableViewController.swift; sourceTree = "<group>"; };
 		7D9C42121D3136CF00933D09 /* Phone-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Phone-50.png"; sourceTree = "<group>"; };
 		7D9C42141D3146CA00933D09 /* Marker-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marker-2.png"; sourceTree = "<group>"; };
+		7D9E72C61D7B292F00500D39 /* Favourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		7DAC7CDE1D29E78E00EE0865 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7DC0E9CF1D348EBD0023581B /* grad_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grad_bg.png; sourceTree = "<group>"; };
 		7DC0E9D11D34A1F60023581B /* nav-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bg.png"; sourceTree = "<group>"; };
@@ -120,6 +127,7 @@
 		7DC0E9D51D34BC390023581B /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
 		7DC0E9D91D34C02F0023581B /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		7DC4B1501D34F66300B5914C /* stamp_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamp_star.png; sourceTree = "<group>"; };
+		7DCEEBD81D7B18A40062B125 /* FavouritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCell.swift; sourceTree = "<group>"; };
 		7DD3D9961D2508CC00F2CFBA /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		7DD3D9981D250F1400F2CFBA /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		7DD3D99A1D2544FE00F2CFBA /* CustomerLoyaltyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomerLoyaltyApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -215,7 +223,9 @@
 				7D9C42071D30DF6300933D09 /* Controllers */,
 				7DD3D99A1D2544FE00F2CFBA /* CustomerLoyaltyApp-Bridging-Header.h */,
 				7DEB1FD01D2D82AE002C3BD6 /* TableViewCell.swift */,
+				7DCEEBD81D7B18A40062B125 /* FavouritesTableViewCell.swift */,
 				7D47D3021D2E061D00ECAC5E /* Merchant.swift */,
+				7D9E72C61D7B292F00500D39 /* Favourite.swift */,
 				7D9C420C1D30EF5E00933D09 /* MerchantDetailsTableViewController.swift */,
 				7D8E90E71D32355700B73D5E /* ScannerViewController.swift */,
 				7DC0E9D51D34BC390023581B /* CardsTableViewController.swift */,
@@ -250,6 +260,7 @@
 		7D66A0091D2A7A6600C5D8B6 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				7D50CC6B1D7AF2B20085060E /* Hearts-grey-50.png */,
 				7D5F26111D76CFE4003E5988 /* Hearts-Filled-50.png */,
 				7D11CC201D3659ED00D17CEC /* Facebook-50.png */,
 				7D11CC1E1D36594000D17CEC /* Domain-50.png */,
@@ -274,6 +285,7 @@
 				7DD3D9981D250F1400F2CFBA /* MainPageViewController.swift */,
 				7D4391291D280DB000F87BCA /* SideViewController.swift */,
 				7DAC7CDE1D29E78E00EE0865 /* AboutViewController.swift */,
+				7D50CC6D1D7B0C8C0085060E /* FavouritesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -423,6 +435,7 @@
 				7D5F26121D76CFE4003E5988 /* Hearts-Filled-50.png in Resources */,
 				7D1AE7D01D210D1E0020CDF3 /* Main.storyboard in Resources */,
 				7DEB1FDB1D2D8507002C3BD6 /* p1.imageset in Resources */,
+				7D50CC6C1D7AF2B30085060E /* Hearts-grey-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +465,7 @@
 				7D47D3031D2E061D00ECAC5E /* Merchant.swift in Sources */,
 				7DD3D9991D250F1400F2CFBA /* MainPageViewController.swift in Sources */,
 				7DD3D99D1D2544FF00F2CFBA /* MBProgressHUD.m in Sources */,
+				7DCEEBD91D7B18A40062B125 /* FavouritesTableViewCell.swift in Sources */,
 				7DD8B83E1D4139CA002E2D42 /* CustomSegue.swift in Sources */,
 				7DD3D9A81D25615C00F2CFBA /* MMDrawerController.m in Sources */,
 				7D8E90E81D32355700B73D5E /* ScannerViewController.swift in Sources */,
@@ -464,12 +478,14 @@
 				7DD3D9971D2508CC00F2CFBA /* SignInViewController.swift in Sources */,
 				7D0B2AB51D561588007A51A2 /* GiftTableViewCell.swift in Sources */,
 				7DC0E9D61D34BC390023581B /* CardsTableViewController.swift in Sources */,
+				7D9E72C71D7B292F00500D39 /* Favourite.swift in Sources */,
 				7D001CDD1D23EF9800B8E8DE /* SignUpViewController.swift in Sources */,
 				7D9C420D1D30EF5E00933D09 /* MerchantDetailsTableViewController.swift in Sources */,
 				7D1AE7CD1D210D1E0020CDF3 /* ViewController.swift in Sources */,
 				7D0F390D1D35292400173166 /* Cards.swift in Sources */,
 				7D1AE7CB1D210D1E0020CDF3 /* AppDelegate.swift in Sources */,
 				7D3764331D4F94CB00E31312 /* CardDetailTableViewController.swift in Sources */,
+				7D50CC6E1D7B0C8C0085060E /* FavouritesViewController.swift in Sources */,
 				7DD3D9A71D25615C00F2CFBA /* MMDrawerBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

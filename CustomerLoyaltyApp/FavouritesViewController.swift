@@ -4,7 +4,7 @@
 
 
 
-//  MainPageViewController.swift
+// FavouritesViewController.swift
 
 
 
@@ -29,7 +29,7 @@
 import UIKit
 import CoreLocation
 
-class MainPageViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class FavouritesViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     let refreshContol:UIRefreshControl = UIRefreshControl()
     
@@ -45,20 +45,14 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
     var merchants = [Merchant]()
     let searchController = UISearchController(searchResultsController: nil)
     var filteredMerchants = [Merchant]()
-   override func viewDidLoad() {
+    override func viewDidLoad() {
         
         //navigation bar bg
         navigationController!.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-        //navigation title
-        
-        let imageView = UIImageView(frame: CGRectMake(0, 0, 40, 40))
-        imageView.contentMode = .ScaleAspectFit
-        imageView.image =  UIImage(named: "logo")
-        self.navigationItem.titleView = imageView
+
         
         //refreshh
         
@@ -83,20 +77,20 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         //table view bg
         
         self.myTableView.backgroundColor = UIColor(patternImage: UIImage(named: "grad_bg")!)
-       myTableView.rowHeight = 250.0
+        myTableView.rowHeight = 250.0
         
         
         super.viewDidLoad()
         //remove space at the top of tableview
         
         // self.myTableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
-    
+        
         getMerchants()
         
         // Do any additional setup after loading the view.
         
     }
-
+    
     //refresh funtion
     
     func uiRefreshControlAction(){
@@ -123,15 +117,15 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! FavouritesTableViewCell
+        
         var data: Merchant!
         
         if searchController.active && searchController.searchBar.text != "" {
             data = filteredMerchants[indexPath.row]
             
         } else {
-           data = merchants[indexPath.row]
+            data = merchants[indexPath.row]
         }
         
         merchants.sortInPlace({ $0.distanceN < $1.distanceN })
@@ -142,15 +136,15 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         cell.merchantNameLabel?.text = data.merchant_name
         cell.merchantCity?.text = data.merchant_city
         
-          let favID = Int(data.favourite_id)
+        let favID = Int(data.favourite_id)
         
         if(favID < 1){
             
             cell.favButton.setBackgroundImage(UIImage(named: "Hearts-grey-50.png"), forState: UIControlState.Normal)
         }else{
             
-             cell.favButton.setBackgroundImage(UIImage(named: "Hearts-Filled-50.png"), forState: UIControlState.Normal)
-        
+            cell.favButton.setBackgroundImage(UIImage(named: "Hearts-Filled-50.png"), forState: UIControlState.Normal)
+            
         }
         
         //background image with cache
@@ -180,10 +174,10 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                 }).resume()
                 
             }
-     
+            
         }
         
-    
+        
         //logo image with catche
         //round logo
         
@@ -228,7 +222,7 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         // merchants = merchants.sort({ current, next in
         //     return current.merchant_name < next.merchant_name
         //  })
-
+        
         return cell
     }
     
@@ -245,13 +239,17 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         
     }
     
-
+    
     
     
     func getMerchants() {
-        let merchantLoadURL = "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/getMerchant.php";
+        let merchantLoadURL = "http://emmancipatemusemwa.com/CustomerLoyaltyAppPHPMySQL/SourceFiles/scripts/getUserFavourites.php?";
+        let postString = "userId=\(userId!)";
+      
+        let url = merchantLoadURL + postString
         
-        let request = NSURLRequest(URL: NSURL(string: merchantLoadURL)!)
+        let request = NSURLRequest(URL: NSURL(string: url)!)
+        
         let urlSession = NSURLSession.sharedSession()
         let task = urlSession.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             if let error = error {
@@ -270,7 +268,7 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
         })
         task.resume()
     }
-
+    
     func parseJsonData(data: NSData) -> [Merchant] {
         do {
             
@@ -284,7 +282,7 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
             let jsonMerchants = jsonResult?["merchants"] as! [AnyObject]
             
             for jsonMerchant in jsonMerchants {
-           
+                
                 let merchant = Merchant()
                 merchant.merchant_id = jsonMerchant["merchant_id"] as! String
                 merchant.merchant_name = jsonMerchant["merchant_name"] as! String
@@ -304,10 +302,10 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                 merchant.merchant_facebook = jsonMerchant["merchant_facebook"] as! String
                 merchant.merchant_website = jsonMerchant["merchant_website"] as! String
                 merchant.merchant_email = jsonMerchant["merchant_email"] as! String
-                 merchant.favourite_id = jsonMerchant["favourite_id"] as! String
-              
+                merchant.favourite_id = jsonMerchant["favourite_id"] as! String
+                
                 //location
-             
+                
                 var myLat = currentCoordinate?.latitude
                 var myLong = currentCoordinate?.longitude
                 let lat:Double = ((merchant.latitude) as NSString).doubleValue
@@ -317,9 +315,9 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                 let distance = location2.distanceFromLocation(mylocation)
                 let distanceKM = distance / 1000
                 merchant.distanceN = distanceKM
-          merchants.append(merchant)
-         }
-      
+                merchants.append(merchant)
+            }
+            
         }catch {
             
             print(error)
@@ -330,13 +328,13 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
     
     
     //Add to favourites
-   
+    
     @IBAction func addFavourite(sender: AnyObject) {
         let cell = sender.superview!!.superview as! TableViewCell
         let indexPath = myTableView.indexPathForCell(cell)
-         var data: Merchant!
-          data = merchants[indexPath!.row]
-       let  merchantID  = data.merchant_id
+        var data: Merchant!
+        data = merchants[indexPath!.row]
+        let  merchantID  = data.merchant_id
         let favouriteID = data.favourite_id
         
         //Activity indicator
@@ -381,8 +379,8 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                         if( favId != nil)
                         {
                             
-                                sender.setImage(UIImage(named: "Hearts-Filled-50.png"), forState: UIControlState.Normal)
- 
+                            sender.setImage(UIImage(named: "Hearts-Filled-50.png"), forState: UIControlState.Normal)
+                            
                             let myAlert = UIAlertController(title: "Alert", message: "Merchant successfully added to your favourites", preferredStyle: UIAlertControllerStyle.Alert);
                             
                             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){(action) in
@@ -392,11 +390,11 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                             
                             myAlert.addAction(okAction);
                             self.presentViewController(myAlert, animated: true, completion: nil)
-                         
+                            
                         } else {
                             //print(favId)
                             sender.setImage(UIImage(named: "Hearts-grey-50.png"), forState: UIControlState.Normal)
-
+                            
                             
                             let myAlert = UIAlertController(title: "Alert", message: "Merchant removed from your favourites", preferredStyle: UIAlertControllerStyle.Alert);
                             
@@ -406,10 +404,10 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
                             }
                             myAlert.addAction(okAction);
                             self.presentViewController(myAlert, animated: true, completion: nil)
-
+                            
                             self.myTableView.reloadData()
                         }
-                            
+                        
                         
                         
                     }
@@ -422,11 +420,11 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
             }
             
         }).resume()
-       
-
-
+        
+        
+        
     }
-
+    
     
     //Send Data Via Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -510,10 +508,10 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
     
     func convertStringToInt(string: String) -> Int!
     {
-    let resultNum = Int(string)
+        let resultNum = Int(string)
         return resultNum
-    
-    
+        
+        
     }
     
     func displayAlertMessage(userMessage: String)
@@ -533,7 +531,7 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
 
 //search extension
 
-extension MainPageViewController: UISearchResultsUpdating {
+extension FavouritesViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }

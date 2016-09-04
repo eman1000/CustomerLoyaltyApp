@@ -16,7 +16,7 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Image Cache Declaration
     var imageCache = NSCache()
     
-    var menuItems:[String] = ["Favourites","View Profile","Settings", "About", "Sign out"]
+    var menuItems:[String] = ["About", "Sign out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -271,85 +271,24 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         switch(indexPath.row)
         {
+            
         case 0:
-            //instatiate main page
-            var mainPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
-            
-            //Wrap into navigtion controller
-            var mainPageNav = UINavigationController(rootViewController: mainPageViewController)
-            
-            //set to navigation drawer by refernecing app delegate coz it was created in appdelegate
-            
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.drawerContainer!.centerViewController = mainPageNav
-            
-            //Close side panel
-            appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            break
-            
-        case 1:
-            
-            //instatiate main page
-            var scanqrPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ScannerViewController") as! ScannerViewController
-            
-            //Wrap into navigtion controller
-            var scanqrPageNav = UINavigationController(rootViewController: scanqrPageViewController)
-            
-            //set to navigation drawer by refernecing app delegate coz it was created in appdelegate
-            
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.drawerContainer!.centerViewController = scanqrPageNav
-            
-            //Close side panel
-            appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
-            break
-            
-            
-        case 2:
-            
-            //instatiate main page
-            var cardsPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CardsTableViewController") as! CardsTableViewController
-            
-            //Wrap into navigtion controller
-            var cardsPageNav = UINavigationController(rootViewController: cardsPageViewController)
-            
-            //set to navigation drawer by refernecing app delegate coz it was created in appdelegate
-            
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.drawerContainer!.centerViewController = cardsPageNav
-            
-            //Close side panel
-            appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
-            break
-            
-            
-        case 3:
             
             //instatiate main page
             var aboutPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
             
             //Wrap into navigtion controller
             var aboutPageNav = UINavigationController(rootViewController: aboutPageViewController)
+
             
-            //set to navigation drawer by refernecing app delegate coz it was created in appdelegate
             
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.drawerContainer!.centerViewController = aboutPageNav
-            
-            //Close side panel
-            appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+            self.presentViewController(aboutPageNav, animated:true, completion:nil)
             
             break
             
             
             
-        case 4:
+        case 1:
             
             NSUserDefaults.standardUserDefaults().removeObjectForKey("userFirstName")
             NSUserDefaults.standardUserDefaults().removeObjectForKey("userLastName")

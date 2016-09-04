@@ -114,7 +114,7 @@ class SignInViewController: UIViewController {
                             
                             // take user to a protected page
                             
-                             /*let mainPage = self.storyboard?.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+                             let mainPage = self.storyboard?.instantiateViewControllerWithIdentifier("MyTabBarViewController") as! MyTabBarViewController
                              
                              let mainPageNav = UINavigationController(rootViewController: mainPage)
                              let appDelegate = UIApplication.sharedApplication().delegate
@@ -125,14 +125,14 @@ class SignInViewController: UIViewController {
                             //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                             
                            // appDelegate.buildNavigationDrawer()
-                              */
+                              
                             
                             //take user to navigation drawer instead of protected page
                             
                             //instatiate app delegate
-                            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                            //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                             
-                            appDelegate.buildNavigationDrawer()
+                           // appDelegate.buildNavigationDrawer()
                             
                             
                         } else {

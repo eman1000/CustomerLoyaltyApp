@@ -16,6 +16,12 @@ class Gift {
     var gift_description:String = ""
     var points_needed = ""
     var gift_image:String = ""
+    var merchant_id:String = ""
+    var merchant_name:String = ""
+    var bg_image:String = ""
+    var logo_image:String = ""
+    var points_accumulated = ""
+    var expiry_date = ""
    
 
 

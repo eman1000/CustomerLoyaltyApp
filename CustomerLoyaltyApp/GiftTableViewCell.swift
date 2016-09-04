@@ -10,6 +10,19 @@ import UIKit
 
 class GiftTableViewCell: UITableViewCell {
 
+    
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    @IBOutlet weak var bgImageView: UIImageView!
+    @IBOutlet weak var merchantNameLabel: UILabel!
+    
+    @IBOutlet weak var giftImageView: UIImageView!
+    
+    @IBOutlet weak var giftNameLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -41,6 +41,10 @@ class AboutViewController: UIViewController {
         
         
     }
+    @IBAction func backTapped(sender: AnyObject) {
+         self.performSegueWithIdentifier("customBackSegue", sender: self)
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -37,8 +37,6 @@ class CardsTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-      
-        tableView.reloadData()
         //table view bg
         
        tableView.backgroundColor = UIColor(patternImage: UIImage(named: "grad_bg")!)
@@ -87,8 +85,9 @@ class CardsTableViewController: UITableViewController {
     
     
     override func viewDidAppear(animated: Bool) {
-        tableView.reloadData()
+
     }
+    
     
     
     
@@ -641,9 +640,7 @@ class CardsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         //self.navigationController!.navigationBar.barTintColor = UIColor(red: 0,green: 0,blue: 0,alpha: 0.5)
-        
-        
-        self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
+   self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = nil
         
         self.navigationController?.navigationBar.translucent = true

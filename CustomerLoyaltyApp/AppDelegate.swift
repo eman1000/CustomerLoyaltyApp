@@ -33,17 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             //take user to protected page
             
-           /* let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainPage = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+            let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainPage = mainStoryboard.instantiateViewControllerWithIdentifier("MyTabBarViewController") as! MyTabBarViewController
             
             let mainPageNav = UINavigationController(rootViewController: mainPage)
             self.window?.rootViewController = mainPageNav
-            */
+            
            
             
             //take user to navigation drawer afeter login
             
-            buildNavigationDrawer()
+           // buildNavigationDrawer()
             
             
             
@@ -75,39 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func buildNavigationDrawer()
-    {
-        //Navigate to main mage
-        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //Instatiate view controllers Create View Controllers
-        
-        var mainPage:MyTabBarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MyTabBarViewController") as! MyTabBarViewController
-        var rightSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
-        var leftSideMenu:SideViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SideViewController") as! SideViewController
-        
-        //Wrap view controllers into navigation controller
-        var mainPageNav = UINavigationController(rootViewController: mainPage)
-        var rightSideMenuNav = UINavigationController(rootViewController: rightSideMenu)
-        var leftSideMenuNav = UINavigationController(rootViewController: leftSideMenu)
-        
-        
-        
-        //Create navigation Drawer
-        
-       drawerContainer = MMDrawerController(centerViewController: mainPageNav, leftDrawerViewController: leftSideMenuNav, rightDrawerViewController: rightSideMenuNav)
-        
-        drawerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
-        drawerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
-        
-        //Set to window root controller
-        
-        window?.rootViewController = drawerContainer
-        
-        
-        
-        
-    }
-
+    
 }
 
