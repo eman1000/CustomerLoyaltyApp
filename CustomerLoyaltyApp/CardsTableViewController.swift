@@ -640,6 +640,9 @@ class CardsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         //self.navigationController!.navigationBar.barTintColor = UIColor(red: 0,green: 0,blue: 0,alpha: 0.5)
+        //cards.removeAll()
+        //getCards()
+        tableView.reloadData()
    self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = nil
         

@@ -133,13 +133,9 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
         request.HTTPMethod = "POST";
         
         let postString = "qrCode=\(code)";
-        
-        
-        
-        
+  
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
-        
+      
         NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
             
             dispatch_async(dispatch_get_main_queue())
@@ -167,24 +163,8 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                         let merchantID = parseJSON["merchantID"] as? String
                         if(qrId != nil)
                         {
-                            
-                           ///
-                            //Qr Code Scanned
-                            
-                            //let userId = "3"
-                            //let merchantID = "1"
-                      
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            //Activity indicator
-                            
-                            
+                      //Activity indicator
+                     
                             let spinningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
                             
                             spinningActivity.labelText = "Updating your points please wait"
@@ -248,22 +228,11 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                                     } catch{
                                         print(error)
                                     }
-                                    
-                                    
-                                    
+           
                                 }
                                 
                             }).resume()
-                            
-
-                            
-                            
-                            
-                            
-                            ///
-                            
-                            
-                            
+       
                             
                         } else {
                             // display an alert message
@@ -280,10 +249,8 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                     print(error)
                 }
                 
-                
             }
-            
-            
+       
             
         }).resume()
         

@@ -310,6 +310,15 @@ class MainPageViewController: UIViewController, UINavigationControllerDelegate, 
              
                 var myLat = currentCoordinate?.latitude
                 var myLong = currentCoordinate?.longitude
+                if (myLat == nil){
+                    myLat = 2.930267
+                
+                }
+                
+                if (myLong == nil){
+                    myLong = 101.655266
+                    
+                }
                 let lat:Double = ((merchant.latitude) as NSString).doubleValue
                 let long:Double = ((merchant.longitude) as NSString).doubleValue
                 let mylocation = CLLocation(latitude: myLat!, longitude: myLong!)
